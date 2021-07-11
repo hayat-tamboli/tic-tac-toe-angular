@@ -1,0 +1,22 @@
+<div class="board">
+<h1>Current player is {{ player }}</h1>
+<button nbButton outline status="info" (click)="newGame()" class="new-game-btn" >
+Start a new game
+</button>
+
+<h2 *ngIf="winner">Player {{ winner }} won the game!</h2>
+<div class="score">
+<button nbButton status="success">X:{{xCount}}
+</button>
+<button nbButton status="info">O:{{oCount}}
+</button>
+</div>
+<main>
+<app-square
+  *ngFor="let val of squares; let i = index"
+  [value]="val"
+  (click)="makeMove(i)"
+>
+</app-square>
+</main>
+</div>

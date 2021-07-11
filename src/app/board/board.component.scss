@@ -1,0 +1,32 @@
+main {
+  // display: flex;
+  // grid-template-columns: 150px 150px 150px;
+  // grid-gap: 4px;
+  display: grid;
+    grid-template-columns: repeat(3,1fr);
+  
+}
+
+app-square {
+  border: 1px black solid;
+  height: 120px;
+  width: 120px;
+}
+.new-game-btn{
+  margin-bottom: 24px;
+}
+
+.board{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+.score{
+  display:flex;
+  button{
+    margin: 4px;
+    font-size: 1.5rem;
+  }
+}

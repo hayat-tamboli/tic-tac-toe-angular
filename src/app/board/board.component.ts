@@ -11,6 +11,8 @@ export class BoardComponent implements OnInit {
   winner: string | any;
   xCount: number;
   oCount: number;
+  initialisationTechnique: number;
+  selectedItemFormControl: any;
 
   constructor() {
     this.xCount=0;
@@ -25,6 +27,15 @@ export class BoardComponent implements OnInit {
     this.squares = Array(9).fill(null);
     this.winner = null;
     this.xIsNext = true;
+    // if(this.selectedItemFormControl==1){
+    //   this.xIsNext = true; //x first
+    // }
+    // if(this.selectedItemFormControl==2){
+    //   this.xIsNext = false; //o first
+    // }
+    // if(this.selectedItemFormControl==3){
+    // this.xIsNext = Math.random()<0.5?true:false; //random
+    // }
   }
 
   get player() {

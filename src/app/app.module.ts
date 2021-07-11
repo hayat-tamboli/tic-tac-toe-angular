@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { SquareComponent } from './square/square.component';
 import { BoardComponent } from './board/board.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbButtonModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbButtonModule, NbSelectModule } from '@nebular/theme';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 // import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
@@ -22,7 +24,14 @@ import { NbThemeModule, NbLayoutModule, NbButtonModule } from '@nebular/theme';
     NbThemeModule.forRoot({ name: 'dark' }),
     NbLayoutModule,
     // NbEvaIconsModule,
-    NbButtonModule
+    NbButtonModule,
+    NbSelectModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
